@@ -4,7 +4,6 @@
     <list default="true" id="f422b6a8-b8ef-41dc-aa41-da398d424509" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Jobase/Jobase.java" afterPath="$PROJECT_DIR$/src/Jobase/Jobase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Jobase/Jobranch.java" afterPath="$PROJECT_DIR$/src/Jobase/Jobranch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Jobase/Joleaf.java" afterPath="$PROJECT_DIR$/src/Jobase/Joleaf.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -35,12 +34,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="593" max-vertical-offset="969">
-              <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
-              <folding />
+            <state vertical-scroll-proportion="0.83082706" vertical-offset="1343" max-vertical-offset="1734">
+              <caret line="92" column="10" selection-start-line="92" selection-start-column="10" selection-end-line="92" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -48,24 +49,31 @@
       <file leaf-file-name="Jobase.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Jobase/Jobase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="1836">
-              <caret line="146" column="21" selection-start-line="146" selection-start-column="21" selection-end-line="146" selection-end-column="21" />
+            <state vertical-scroll-proportion="-1.7142857" vertical-offset="802" max-vertical-offset="2193">
+              <caret line="60" column="43" selection-start-line="60" selection-start-column="43" selection-end-line="60" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#getBranches#1;class#Jobase#0" expanded="false" />
-                <element signature="e#1036#1046#0" expanded="true" />
+                <element signature="method#getBranches#0;class#Jobase#0" expanded="false" />
+                <element signature="e#975#985#0" expanded="true" />
+                <element signature="e#1168#1178#0" expanded="true" />
                 <element signature="method#addBranch#0;class#Jobase#0" expanded="false" />
                 <element signature="method#addBranches#0;class#Jobase#0" expanded="false" />
-                <element signature="e#1777#1787#0" expanded="true" />
+                <element signature="e#1935#1945#0" expanded="true" />
                 <element signature="method#addBranches#1;class#Jobase#0" expanded="false" />
                 <element signature="method#addBranches#2;class#Jobase#0" expanded="false" />
                 <element signature="method#removeBranch#0;class#Jobase#0" expanded="false" />
                 <element signature="method#removeBranch#1;class#Jobase#0" expanded="false" />
                 <element signature="method#removeBranches#0;class#Jobase#0" expanded="false" />
-                <element signature="e#2909#2919#0" expanded="true" />
+                <element signature="e#3093#3103#0" expanded="true" />
                 <element signature="method#removeBranches#1;class#Jobase#0" expanded="false" />
-                <element signature="e#3589#3590#0" expanded="true" />
-                <element signature="e#3656#3657#0" expanded="true" />
+                <element signature="e#3814#3815#0" expanded="true" />
+                <element signature="e#3881#3882#0" expanded="true" />
+                <element signature="e#3923#3924#0" expanded="true" />
+                <element signature="e#3947#3948#0" expanded="true" />
+                <element signature="e#3989#3990#0" expanded="true" />
+                <element signature="e#4013#4014#0" expanded="true" />
+                <element signature="e#4055#4056#0" expanded="true" />
+                <element signature="e#4113#4114#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,13 +82,13 @@
       <file leaf-file-name="Jobranch.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Jobase/Jobranch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="458" max-vertical-offset="1530">
-              <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="1054">
+              <caret line="109" column="17" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setName#0;class#Jobranch#0" expanded="false" />
                 <element signature="method#getLeaves#1;class#Jobranch#0" expanded="false" />
-                <element signature="e#763#771#0" expanded="true" />
+                <element signature="e#793#801#0" expanded="true" />
                 <element signature="method#addLeaf#0;class#Jobranch#0" expanded="false" />
                 <element signature="method#addLeaf#1;class#Jobranch#0" expanded="false" />
                 <element signature="method#addLeaf#2;class#Jobranch#0" expanded="false" />
@@ -89,11 +97,10 @@
                 <element signature="method#addLeaf#5;class#Jobranch#0" expanded="false" />
                 <element signature="method#removeLeaf#0;class#Jobranch#0" expanded="false" />
                 <element signature="method#removeLeaves#0;class#Jobranch#0" expanded="false" />
-                <element signature="e#1977#1985#0" expanded="true" />
-                <element signature="e#2871#2872#0" expanded="true" />
-                <element signature="e#2934#2935#0" expanded="true" />
-                <element signature="e#2967#2968#0" expanded="true" />
-                <element signature="e#3024#3025#0" expanded="true" />
+                <element signature="e#2033#2041#0" expanded="true" />
+                <element signature="method#toString#0;class#Jobranch#0" expanded="false" />
+                <element signature="method#addParent#0;class#Jobranch#0" expanded="false" />
+                <element signature="method#removeParent#0;class#Jobranch#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -102,8 +109,8 @@
       <file leaf-file-name="Joleaf.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Jobase/Joleaf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1422" max-vertical-offset="2193">
-              <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1740" max-vertical-offset="2193">
+              <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
               <folding>
                 <element signature="method#setNumeric#0;class#Joleaf#0" expanded="false" />
                 <element signature="method#set#1;class#Joleaf#0" expanded="false" />
@@ -117,11 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2506887" vertical-offset="2425" max-vertical-offset="2805">
-              <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2637" max-vertical-offset="2958">
+              <caret line="168" column="25" selection-start-line="168" selection-start-column="25" selection-end-line="168" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -142,8 +149,8 @@
       <list>
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/Jobase.java" />
-        <option value="$PROJECT_DIR$/src/Jobase/Jobase.java" />
         <option value="$PROJECT_DIR$/src/Jobase/Joleaf.java" />
+        <option value="$PROJECT_DIR$/src/Jobase/Jobase.java" />
         <option value="$PROJECT_DIR$/src/Jobase/Jobranch.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -512,12 +519,12 @@
       <changelist id="f422b6a8-b8ef-41dc-aa41-da398d424509" name="Default" comment="" />
       <created>1403747066780</created>
       <updated>1403747066780</updated>
-      <workItem from="1403747067671" duration="28460000" />
+      <workItem from="1403747067671" duration="33635000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28460000" />
+    <option name="totallyTimeSpent" value="33635000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -543,7 +550,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34094617" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5203915" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -610,68 +617,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Jobase/Jobase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="1836">
-          <caret line="146" column="21" selection-start-line="146" selection-start-column="21" selection-end-line="146" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getBranches#1;class#Jobase#0" expanded="false" />
-            <element signature="e#1036#1046#0" expanded="true" />
-            <element signature="method#addBranch#0;class#Jobase#0" expanded="false" />
-            <element signature="method#addBranches#0;class#Jobase#0" expanded="false" />
-            <element signature="e#1777#1787#0" expanded="true" />
-            <element signature="method#addBranches#1;class#Jobase#0" expanded="false" />
-            <element signature="method#addBranches#2;class#Jobase#0" expanded="false" />
-            <element signature="method#removeBranch#0;class#Jobase#0" expanded="false" />
-            <element signature="method#removeBranch#1;class#Jobase#0" expanded="false" />
-            <element signature="method#removeBranches#0;class#Jobase#0" expanded="false" />
-            <element signature="e#2909#2919#0" expanded="true" />
-            <element signature="method#removeBranches#1;class#Jobase#0" expanded="false" />
-            <element signature="e#3589#3590#0" expanded="true" />
-            <element signature="e#3656#3657#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Jobase/Jobranch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="458" max-vertical-offset="1530">
-          <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setName#0;class#Jobranch#0" expanded="false" />
-            <element signature="method#getLeaves#1;class#Jobranch#0" expanded="false" />
-            <element signature="e#763#771#0" expanded="true" />
-            <element signature="method#addLeaf#0;class#Jobranch#0" expanded="false" />
-            <element signature="method#addLeaf#1;class#Jobranch#0" expanded="false" />
-            <element signature="method#addLeaf#2;class#Jobranch#0" expanded="false" />
-            <element signature="method#addLeaf#3;class#Jobranch#0" expanded="false" />
-            <element signature="method#addLeaf#4;class#Jobranch#0" expanded="false" />
-            <element signature="method#addLeaf#5;class#Jobranch#0" expanded="false" />
-            <element signature="method#removeLeaf#0;class#Jobranch#0" expanded="false" />
-            <element signature="method#removeLeaves#0;class#Jobranch#0" expanded="false" />
-            <element signature="e#1977#1985#0" expanded="true" />
-            <element signature="e#2871#2872#0" expanded="true" />
-            <element signature="e#2934#2935#0" expanded="true" />
-            <element signature="e#2967#2968#0" expanded="true" />
-            <element signature="e#3024#3025#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="593" max-vertical-offset="969">
-          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Jobase/Joleaf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1422" max-vertical-offset="2193">
-          <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1740" max-vertical-offset="2193">
+          <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
           <folding>
             <element signature="method#setNumeric#0;class#Joleaf#0" expanded="false" />
             <element signature="method#set#1;class#Joleaf#0" expanded="false" />
@@ -684,11 +633,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Jobase/Jobranch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="1054">
+          <caret line="109" column="17" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setName#0;class#Jobranch#0" expanded="false" />
+            <element signature="method#getLeaves#1;class#Jobranch#0" expanded="false" />
+            <element signature="e#793#801#0" expanded="true" />
+            <element signature="method#addLeaf#0;class#Jobranch#0" expanded="false" />
+            <element signature="method#addLeaf#1;class#Jobranch#0" expanded="false" />
+            <element signature="method#addLeaf#2;class#Jobranch#0" expanded="false" />
+            <element signature="method#addLeaf#3;class#Jobranch#0" expanded="false" />
+            <element signature="method#addLeaf#4;class#Jobranch#0" expanded="false" />
+            <element signature="method#addLeaf#5;class#Jobranch#0" expanded="false" />
+            <element signature="method#removeLeaf#0;class#Jobranch#0" expanded="false" />
+            <element signature="method#removeLeaves#0;class#Jobranch#0" expanded="false" />
+            <element signature="e#2033#2041#0" expanded="true" />
+            <element signature="method#toString#0;class#Jobranch#0" expanded="false" />
+            <element signature="method#addParent#0;class#Jobranch#0" expanded="false" />
+            <element signature="method#removeParent#0;class#Jobranch#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Jobase/Jobase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.7142857" vertical-offset="802" max-vertical-offset="2193">
+          <caret line="60" column="43" selection-start-line="60" selection-start-column="43" selection-end-line="60" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getBranches#0;class#Jobase#0" expanded="false" />
+            <element signature="e#975#985#0" expanded="true" />
+            <element signature="e#1168#1178#0" expanded="true" />
+            <element signature="method#addBranch#0;class#Jobase#0" expanded="false" />
+            <element signature="method#addBranches#0;class#Jobase#0" expanded="false" />
+            <element signature="e#1935#1945#0" expanded="true" />
+            <element signature="method#addBranches#1;class#Jobase#0" expanded="false" />
+            <element signature="method#addBranches#2;class#Jobase#0" expanded="false" />
+            <element signature="method#removeBranch#0;class#Jobase#0" expanded="false" />
+            <element signature="method#removeBranch#1;class#Jobase#0" expanded="false" />
+            <element signature="method#removeBranches#0;class#Jobase#0" expanded="false" />
+            <element signature="e#3093#3103#0" expanded="true" />
+            <element signature="method#removeBranches#1;class#Jobase#0" expanded="false" />
+            <element signature="e#3814#3815#0" expanded="true" />
+            <element signature="e#3881#3882#0" expanded="true" />
+            <element signature="e#3923#3924#0" expanded="true" />
+            <element signature="e#3947#3948#0" expanded="true" />
+            <element signature="e#3989#3990#0" expanded="true" />
+            <element signature="e#4013#4014#0" expanded="true" />
+            <element signature="e#4055#4056#0" expanded="true" />
+            <element signature="e#4113#4114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2506887" vertical-offset="2425" max-vertical-offset="2805">
-          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2637" max-vertical-offset="2958">
+          <caret line="168" column="25" selection-start-line="168" selection-start-column="25" selection-end-line="168" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.83082706" vertical-offset="1343" max-vertical-offset="1734">
+          <caret line="92" column="10" selection-start-line="92" selection-start-column="10" selection-end-line="92" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

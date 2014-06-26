@@ -1,5 +1,7 @@
 import Jobase.*;
 
+import java.util.ArrayList;
+
 public class Main {
 
 	static Jobase jobase;
@@ -35,11 +37,12 @@ public class Main {
 		foostrings.addLeaf("favorite_word", "fortune");
 		foostrings.addLeaf("age", 14);
 
-		System.out.println(jobase);
+		System.out.println(foo);
 
 		//System.out.println(superusers.getBranch("0").getLeaf("username"));
 		*/
 
+		/*
 		Jobase db = new Jobase("server");
 		Jobranch users = db.addBranch("users");
 		Jobranch superusers = db.addBranch("superusers");
@@ -47,5 +50,47 @@ public class Main {
 		root.addLeaf("id", 100);
 		superusers.addBranch(users.removeBranch("root"));
 		System.out.println(db);
+		*/
+
+		/*
+		Jobase db = new Jobase("server");
+
+		Jobranch users = db.addBranch("users");
+		Jobranch superusers = db.addBranch("superusers");
+		Jobranch root = users.addBranch("root");
+		root.addLeaf("id", 100);
+		superusers.addBranch(users.removeBranch("root"));
+		System.out.println(db);
+		*/
+
+		/*
+		Jobase db = new Jobase("server");
+
+		Jobranch users = db.addBranch("users");
+		Jobranch superusers = db.addBranch("superusers");
+		superusers.addBranch("root").addLeaf("id", 0);
+		superusers.addBranch("su").addLeaf("id", 1);
+		users.addBranch("toor").addLeaf("id", 2);
+		users.addBranch("foo").addLeaf("id", 3);
+		users.addBranch("bar").addLeaf("id", 4);
+		String mux = "";
+		for (Jobranch jobranch: superusers.getBranches())
+			mux += jobranch + "\n";
+		for (Jobranch jobranch: users.getBranches())
+			mux += jobranch + "\n";
+		System.out.println(Jobase.toJSON(mux.substring(0, mux.length() - 1)));
+		*/
+
+		/*
+		Jobase db = new Jobase("server");
+
+		Jobranch root = db.addBranch("users").addBranch("root");
+		root.addLeaf("id", 100);
+		Jobranch toor = root.getParents()[0].addBranch("toor");
+		toor.addLeaf("id", 200);
+
+		System.out.println(db);
+		*/
+
 	}
 }

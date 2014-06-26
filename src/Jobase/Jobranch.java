@@ -1,6 +1,7 @@
 package Jobase;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class Jobranch extends Jobase {
@@ -37,6 +38,7 @@ public class Jobranch extends Jobase {
 		for (String name: names)
 			if (leaves.containsKey(name))
 				j.add(leaves.get(name));
+		Collections.reverse(j);
 		return j.toArray(new Joleaf[j.size()]);
 	}
 
@@ -88,30 +90,21 @@ public class Jobranch extends Jobase {
 		for (String name: names)
 			if (leaves.containsKey(name))
 				j.add(leaves.remove(name).removeParent(this));
+		Collections.reverse(j);
 		return j.toArray(new Joleaf[j.size()]);
 	}
 
 	public String toString() {
-		//return "{\n\t" + _name + ":\n\t" + super.toString().replaceAll("\n", "\n\t") + "\n\t:\n\t" + leaves.values().toString().replaceAll("\n", "\n\t") + "\t\n}";
-		String s = "\n\"branches\": {";
-		String t = "";
-		for (Jobranch j: branches.values()) {
-			t += j + ",";
-		}
-		if (branches.values().size() > 0)
-			t = t.substring(0, t.length() - 1).replaceAll("\n", "\n\t") + "\n";
-		s += t + "},\n\"leaves\": {";
-		t = "";
+		String s = "";
 		for (Joleaf j: leaves.values()) {
-			t += "\n" + j + ",";
+			s += "\n" + j + ",";
 		}
-		if (leaves.values().size() > 0)
-			t = t.substring(0, t.length() - 1).replaceAll("\n", "\n\t") + "\n";
-		return "\n\"" + _name + "\": {" + (s + t).replaceAll("\n", "\n\t") + "}\n}";
-	}
-
-	public String toJSON() {
-		return "{" + toString().replaceAll("\n", "\n\t") + "\n}";
+		for (Jobranch j: branches.values()) {
+			s += "\n" + j + ",";
+		}
+		if (leaves.values().size() + branches.values().size() > 0)
+			s = s.substring(0, s.length() - 1).replaceAll("\n", "\n\t") + "\n";
+		return "\"" + _name + "\": {" + s + "}";
 	}
 
 	public Jobase[] getParents() {

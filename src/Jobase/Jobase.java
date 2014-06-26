@@ -4,6 +4,8 @@ package Jobase;
 //import java.io.FileInputStream;
 //import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class Jobase {
@@ -42,7 +44,9 @@ public class Jobase {
 	}
 
 	public Jobranch[] getBranches() {
-		return branches.values().toArray(new Jobranch[branches.size()]);
+		ArrayList<Jobranch> j = new ArrayList<Jobranch>(branches.values());
+		Collections.reverse(j);
+		return j.toArray(new Jobranch[j.size()]);
 	}
 
 	public Jobranch[] getBranches(String[] names) {
@@ -50,6 +54,7 @@ public class Jobase {
 		for (String name: names)
 			if (branches.containsKey(name))
 				j.add(branches.get(name));
+		Collections.reverse(j);
 		return j.toArray(new Jobranch[j.size()]);
 	}
 
@@ -82,6 +87,7 @@ public class Jobase {
 			else
 				j.add(branches.replace(name, new Jobranch(name)));
 		}
+		Collections.reverse(j);
 		return j.toArray(new Jobranch[j.size()]);
 	}
 
@@ -123,6 +129,7 @@ public class Jobase {
 		for (String name: names)
 			if (branches.containsKey(name))
 				j.add(branches.remove(name).removeParent(this));
+		Collections.reverse(j);
 		return j.toArray(new Jobranch[j.size()]);
 	}
 
@@ -135,17 +142,29 @@ public class Jobase {
 
 	public String toString() {
 		//return branches.values().toString();
-		String s = "\"" + _name + "\": {";
+		String s = "";
 		for (Jobranch j: branches.values()) {
-			s += j + ",\n";
+			s += "\n" + j + ",";
 		}
 		if (branches.values().size() > 0)
-			s = s.substring(0, s.length() - 2);
-		return s.replaceAll("\n", "\n\t") + "\n}";
+			s = s.substring(0, s.length() - 1).replaceAll("\n", "\n\t") + "\n";
+		return "\"" + _name + "\": {" + s + "}";
 	}
 
 	public String toJSON() {
 		return "{\n\t" + toString().replaceAll("\n", "\n\t") + "\n}";
+	}
+
+	public static String toJSON(Jobase j) {
+		return j.toJSON();
+	}
+
+	public static String toJSON(Joleaf j) {
+		return j.toJSON();
+	}
+
+	public static String toJSON(String s) {
+		return "{\n\t" + s.replaceAll("\n", "\n\t") + "\n}";
 	}
 
 	/*
