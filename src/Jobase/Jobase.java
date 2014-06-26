@@ -8,13 +8,19 @@ import java.util.HashMap;
 
 public class Jobase {
 	protected HashMap<String, Jobranch> branches;
+	protected String _name;
 
 	// TODO Implement saving and reading from files
 	//protected File diskFile;
 
 	public Jobase() {
 		branches = new HashMap<String, Jobranch>();
-		//diskFile = null;
+		_name = "";
+	}
+
+	public Jobase(String name) {
+		branches = new HashMap<String, Jobranch>();
+		_name = name;
 	}
 
 	/*public Jobase(String filename) {
@@ -22,6 +28,10 @@ public class Jobase {
 		diskFile = new File(filename);
 	}
 	*/
+
+	public String getName() {
+		return _name;
+	}
 
 	public Jobranch getBranch(String name) {
 		return branches.get(name);
@@ -124,7 +134,18 @@ public class Jobase {
 	}
 
 	public String toString() {
-		return branches.values().toString();
+		//return branches.values().toString();
+		String s = "\"" + _name + "\": {";
+		for (Jobranch j: branches.values()) {
+			s += j + ",\n";
+		}
+		if (branches.values().size() > 0)
+			s = s.substring(0, s.length() - 2);
+		return s.replaceAll("\n", "\n\t") + "\n}";
+	}
+
+	public String toJSON() {
+		return "{\n\t" + toString().replaceAll("\n", "\n\t") + "\n}";
 	}
 
 	/*

@@ -89,8 +89,9 @@ public class Joleaf {
 		return _name;
 	}
 
-	public void setNumeric(boolean n) {
+	public Joleaf setNumeric(boolean n) {
 		_numeric = n;
+		return this;
 	}
 
 	public Joleaf set(String s) {
@@ -134,7 +135,11 @@ public class Joleaf {
 	}
 
 	public String toString() {
-		return "{\n\t" + _name + ":\n\t" + _string + "\n}";
+		return "\"" + _name + "\": " + (_numeric ? _string : "\"" + _string + "\"");
+	}
+
+	public String toJSON() {
+		return "{\n\t" + toString() + "\n}";
 	}
 
 	public Jobase[] getParents() {

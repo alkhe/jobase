@@ -5,25 +5,23 @@ import java.util.HashMap;
 
 public class Jobranch extends Jobase {
 	protected HashMap<String, Joleaf> leaves;
-	protected String _name;
 	protected ArrayList<Jobase> _parent;
 
 	public Jobranch() {
 		super();
 		leaves = new HashMap<String, Joleaf>();
-		_name = "";
 		_parent = new ArrayList<Jobase>();
 	}
 
 	public Jobranch(String name) {
-		super();
+		super(name);
 		leaves = new HashMap<String, Joleaf>();
-		_name = name;
 		_parent = new ArrayList<Jobase>();
 	}
 
-	public String getName() {
-		return _name;
+	protected Jobranch setName(String name) {
+		_name = name;
+		return this;
 	}
 
 	public Joleaf getLeaf(String name) {
@@ -42,28 +40,41 @@ public class Jobranch extends Jobase {
 		return j.toArray(new Joleaf[j.size()]);
 	}
 
+	// TODO Also fix null pointer exceptions here
+
 	public Joleaf addLeaf(String name) {
-		return leaves.put(name, new Joleaf().setName(name).addParent(this));
+		Joleaf j = new Joleaf(name).addParent(this);
+		leaves.put(name, j);
+		return j;
 	}
 
 	public Joleaf addLeaf(String name, String s) {
-		return leaves.put(name, new Joleaf(s).setName(name).addParent(this));
+		Joleaf j = new Joleaf(name, s).addParent(this);
+		leaves.put(name, j);
+		return j;
 	}
 
 	public Joleaf addLeaf(String name, int i) {
-		return leaves.put(name, new Joleaf(i).setName(name).addParent(this));
+		Joleaf j = new Joleaf(name, i).addParent(this);
+		leaves.put(name, j);
+		return j;
 	}
 
 	public Joleaf addLeaf(String name, double d) {
-		return leaves.put(name, new Joleaf(d).setName(name).addParent(this));
+		Joleaf j = new Joleaf(name, d).addParent(this);
+		leaves.put(name, j);
+		return j;
 	}
 
 	public Joleaf addLeaf(String name, char c) {
-		return leaves.put(name, new Joleaf(c).setName(name).addParent(this));
+		Joleaf j = new Joleaf(name, c).addParent(this);
+		leaves.put(name, j);
+		return j;
 	}
 
 	public Joleaf addLeaf(String name, Joleaf j) {
-		return leaves.put(name, j.setName(name).addParent(this));
+		leaves.put(name, j.setName(name).addParent(this));
+		return j;
 	}
 
 	public Joleaf removeLeaf(String name) {
@@ -81,7 +92,26 @@ public class Jobranch extends Jobase {
 	}
 
 	public String toString() {
-		return "{\n\t" + _name + ":\n\t" + super.toString().replaceAll("\n", "\n\t") + "\n\t:\n\t" + leaves.values().toString().replaceAll("\n", "\n\t") + "\t\n}";
+		//return "{\n\t" + _name + ":\n\t" + super.toString().replaceAll("\n", "\n\t") + "\n\t:\n\t" + leaves.values().toString().replaceAll("\n", "\n\t") + "\t\n}";
+		String s = "\n\"branches\": {";
+		String t = "";
+		for (Jobranch j: branches.values()) {
+			t += j + ",";
+		}
+		if (branches.values().size() > 0)
+			t = t.substring(0, t.length() - 1).replaceAll("\n", "\n\t") + "\n";
+		s += t + "},\n\"leaves\": {";
+		t = "";
+		for (Joleaf j: leaves.values()) {
+			t += "\n" + j + ",";
+		}
+		if (leaves.values().size() > 0)
+			t = t.substring(0, t.length() - 1).replaceAll("\n", "\n\t") + "\n";
+		return "\n\"" + _name + "\": {" + (s + t).replaceAll("\n", "\n\t") + "}\n}";
+	}
+
+	public String toJSON() {
+		return "{" + toString().replaceAll("\n", "\n\t") + "\n}";
 	}
 
 	public Jobase[] getParents() {
@@ -95,11 +125,6 @@ public class Jobranch extends Jobase {
 
 	protected Jobranch removeParent(Jobase j) {
 		_parent.remove(j);
-		return this;
-	}
-
-	protected Jobranch setName(String name) {
-		_name = name;
 		return this;
 	}
 }
