@@ -155,6 +155,37 @@ public class Jobranch extends Jobase {
 		return leaf.toArray(new Jobranch[j.length]);
 	}
 
+	public static Jobranch[] sortByLeaf(Jobranch[] j, final String name, final boolean reverse) {
+		ArrayList<Jobranch> leaf = new ArrayList<Jobranch>();
+		ArrayList<Jobranch> less = new ArrayList<Jobranch>();
+		for (Jobranch jb: j) {
+			if (jb.hasLeaf(name))
+				leaf.add(jb);
+			else
+				less.add(jb);
+		}
+		leaf.sort(new Comparator<Jobranch>() {
+			public int compare(Jobranch o1, Jobranch o2) {
+				Joleaf l1 = o1.getLeaf(name);
+				Joleaf l2 = o2.getLeaf(name);
+				switch (l1._type) {
+					case INTEGER:
+						return (l1.getInt() == l2.getInt() ? 0 : (!reverse ? (l1.getInt() > l2.getInt() ? 1 : -1) : (l1.getInt() < l2.getInt() ? 1 : -1)));
+					case FLOAT:
+						return (l1.getDouble() == l2.getDouble() ? 0 : (!reverse ? (l1.getDouble() > l2.getDouble() ? 1 : -1) : (l1.getDouble() < l2.getDouble() ? 1 : -1)));
+					case BOOLEAN:
+						return (l1.getBoolean() == l2.getBoolean() ? 0 : (!reverse ? (l1.getBoolean() ? 1 : -1) : (!l1.getBoolean() ? 1 : -1)));
+					case STRING:
+					default:
+						return (!reverse ? l1.compareTo(l2) : l2.compareTo(l1));
+				}
+			}
+		});
+		leaf.addAll(less);
+		Collections.reverse(leaf);
+		return leaf.toArray(new Jobranch[j.length]);
+	}
+
 	protected Jobranch addParent(Jobase j) {
 		if (!_parent.contains(j))
 			_parent.add(j);

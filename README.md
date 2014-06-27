@@ -173,10 +173,15 @@ Jobranch and Joleaf nodes are given the addresses of their parents when assigned
 	}
 
 ###Sorting Branches by Leaf
-An array of Jobranches can be sorted by a particular shared leaf, using the Jobranch.sortByLeaf method. Branches that do not contain the specified leaf are placed at the end of the returned array.
+An array of Jobranches can be sorted by a particular shared leaf, using the Jobranch.sortByLeaf method. Branches that do not contain the specified leaf are placed at the end of the returned array. The sorted portion may be reversed with the optional specification of a reverse boolean.
 
 	Jobranch users = db.addBranch("users");
-	Jobranch[] user = new Jobranch[] {users.addBranch("root"), users.addBranch("toor"), users.addBranch("foo"), users.addBranch("bar")};
+	Jobranch[] user = new Jobranch[] {
+		users.addBranch("root"),
+		users.addBranch("toor"),
+		users.addBranch("foo"),
+		users.addBranch("bar")
+	};
 	user[0].addLeaf("points", 9001);
 	user[1].addLeaf("points", 5);
 	user[2].addLeaf("points", 15);
