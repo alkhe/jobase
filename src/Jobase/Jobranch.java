@@ -4,6 +4,7 @@ import jdk.internal.util.xml.impl.Pair;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class Jobranch extends Jobase {
@@ -128,13 +129,21 @@ public class Jobranch extends Jobase {
 		return _parent.toArray(new Jobase[_parent.size()]);
 	}
 
-	/*public Jobranch[] sortByLeaf(Jobranch[] j, String key) {
+	/*
+	public Jobranch[] sortByLeaf(Jobranch[] j, String name) {
+		ArrayList<Jobranch> leaf = new ArrayList<Jobranch>();
 		ArrayList<Jobranch> less = new ArrayList<Jobranch>();
 		for (Jobranch jb: j) {
-			if jb.hasl
+			if (jb.hasLeaf(name))
+				leaf.add(jb);
+			else
+				less.add(jb);
 		}
+		Joleaf.Type type = leaf.get(0).getLeaf(name)._type;
+		leaf.sort();
 		HashMap<>
-	}*/
+	}
+	*/
 
 	protected Jobranch addParent(Jobase j) {
 		if (!_parent.contains(j))
