@@ -172,13 +172,38 @@ Jobranch and Joleaf nodes are given the addresses of their parents when assigned
 		}
 	}
 
+###Sorting Branches by Leaf
+An array of Jobranches can be sorted by a particular shared leaf, using the Jobranch.sortByLeaf method. Branches that do not contain the specified leaf are placed at the end of the returned array.
+
+	Jobranch users = db.addBranch("users");
+	Jobranch[] user = new Jobranch[] {users.addBranch("root"), users.addBranch("toor"), users.addBranch("foo"), users.addBranch("bar")};
+	user[0].addLeaf("points", 9001);
+	user[1].addLeaf("points", 5);
+	user[2].addLeaf("points", 15);
+	user[3].addLeaf("points", 2);
+	for (Jobranch j: Jobranch.sortByLeaf(users.getBranches(), "points"))
+		System.out.println(j);
+>
+	"root": {
+		"points": 9001
+	}
+	"foo": {
+		"points": 15
+	}
+	"toor": {
+		"points": 5
+	}
+	"bar": {
+		"points": 2
+	}
+
 ##Development
 *	Writing to and reading from files, automatic interval write to disk
-*	SOAP Query language/Web API
-*	Extending ArrayList to account for internal java.util bugs
-*	Further optimization
-*	GUI Viewing Software
+*	Accessing nodes generically
 * 	Arrays and Lists as leaves
 *	Initialize database from JSON
+*	Extending java.util classes as a countermeasure to internal Java bugs
+*	Query Language
+*	SOAP/REST API
 *	Port to other languages
-*	Sort branches by leaf
+*	GUI Viewing Software
