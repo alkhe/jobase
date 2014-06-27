@@ -1,11 +1,6 @@
 package Jobase;
 
-import jdk.internal.util.xml.impl.Pair;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
+import java.util.*;
 
 public class Jobranch extends Jobase {
 	protected HashMap<String, Joleaf> leaves;
@@ -129,8 +124,7 @@ public class Jobranch extends Jobase {
 		return _parent.toArray(new Jobase[_parent.size()]);
 	}
 
-	/*
-	public Jobranch[] sortByLeaf(Jobranch[] j, String name) {
+	public static Jobranch[] sortByLeaf(Jobranch[] j, final String name) {
 		ArrayList<Jobranch> leaf = new ArrayList<Jobranch>();
 		ArrayList<Jobranch> less = new ArrayList<Jobranch>();
 		for (Jobranch jb: j) {
@@ -139,11 +133,27 @@ public class Jobranch extends Jobase {
 			else
 				less.add(jb);
 		}
-		Joleaf.Type type = leaf.get(0).getLeaf(name)._type;
-		leaf.sort();
-		HashMap<>
+		leaf.sort(new Comparator<Jobranch>() {
+			public int compare(Jobranch o1, Jobranch o2) {
+				Joleaf l1 = o1.getLeaf(name);
+				Joleaf l2 = o2.getLeaf(name);
+				switch (l1._type) {
+					case INTEGER:
+						return (l1.getInt() == l2.getInt() ? 0 : (l1.getInt() > l2.getInt() ? 1 : -1));
+					case FLOAT:
+						return (l1.getDouble() == l2.getDouble() ? 0 : (l1.getDouble() > l2.getDouble() ? 1 : -1));
+					case BOOLEAN:
+						return (l1.getBoolean() == l2.getBoolean() ? 0 : (l1.getBoolean() ? 1 : -1));
+					case STRING:
+					default:
+						return l1.compareTo(l2);
+				}
+			}
+		});
+		leaf.addAll(less);
+		Collections.reverse(leaf);
+		return leaf.toArray(new Jobranch[j.length]);
 	}
-	*/
 
 	protected Jobranch addParent(Jobase j) {
 		if (!_parent.contains(j))

@@ -1,6 +1,7 @@
 package Jobase;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Joleaf {
 
@@ -164,6 +165,10 @@ public class Joleaf {
 
 	public Jobase[] getParents() {
 		return _parent.toArray(new Jobase[_parent.size()]);
+	}
+
+	public int compareTo(Joleaf j) {
+		return _value.compareTo(j._value);
 	}
 
 	protected Joleaf addParent(Jobase j) {

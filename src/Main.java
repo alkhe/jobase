@@ -1,5 +1,7 @@
 import Jobase.*;
 
+import java.util.ArrayList;
+
 public class Main {
 
 	static Jobase jobase;
@@ -96,5 +98,26 @@ public class Main {
 
 		System.out.println(db);
 		*/
+
+
+		Jobase db = new Jobase("server");
+
+		Jobranch users = db.addBranch("users");
+		Jobranch[] user = new Jobranch[] {users.addBranch("root"), users.addBranch("toor"), users.addBranch("foo"), users.addBranch("bar")};
+		user[0].addLeaf("points", 9001);
+		user[0].addLeaf("male", true);
+		user[1].addLeaf("points", 5);
+		user[1].addLeaf("male", false);
+		user[2].addLeaf("points", 15);
+		user[2].addLeaf("male", true);
+		user[3].addLeaf("points", 2);
+		user[3].addLeaf("male", false);
+
+		for (Jobranch j: Jobranch.sortByLeaf(users.getBranches(), "points"))
+			System.out.println(j);
+
+		for (Jobranch j: Jobranch.sortByLeaf(users.getBranches(), "male"))
+			System.out.println(j);
+
 	}
 }
