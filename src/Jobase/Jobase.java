@@ -40,7 +40,7 @@ public class Jobase {
 	}
 
 	public Jobranch getBranch(Jobranch j) {
-		return branches.get(j.getName());
+		return branches.get(j._name);
 	}
 
 	public Jobranch[] getBranches() {
@@ -123,8 +123,8 @@ public class Jobase {
 	}
 
 	public Jobranch removeBranch(Jobranch j) {
-		if (branches.containsKey(j.getName()))
-			return branches.remove(j.getName()).removeParent(this);
+		if (branches.containsKey(j._name))
+			return branches.remove(j._name).removeParent(this);
 		return j;
 	}
 
@@ -138,10 +138,18 @@ public class Jobase {
 	}
 
 	public Jobranch[] removeBranches(Jobranch[] j) {
-		for (Jobranch jo: j)
-			if (branches.containsKey(jo.getName()))
-				branches.remove(jo.getName()).removeParent(this);
+		for (Jobranch jb: j)
+			if (branches.containsKey(jb._name))
+				branches.remove(jb._name).removeParent(this);
 		return j;
+	}
+
+	public boolean hasBranch(String name) {
+		return branches.containsKey(name);
+	}
+
+	public boolean hasBranch(Jobranch j) {
+		return branches.containsKey(j._name);
 	}
 
 	public String toString() {
@@ -160,6 +168,11 @@ public class Jobase {
 	}
 
 	public static String toJSON(Jobase j) {
+		return j.toJSON();
+	}
+
+	// Do not delete, this method useful to programmers using Autocomplete.
+	public static String toJSON(Jobranch j) {
 		return j.toJSON();
 	}
 

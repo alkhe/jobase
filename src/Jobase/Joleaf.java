@@ -3,85 +3,93 @@ package Jobase;
 import java.util.ArrayList;
 
 public class Joleaf {
-	protected String _string;
-	protected boolean _numeric;
+
+	public static enum Type {
+		STRING,
+		INTEGER,
+		FLOAT,
+		BOOLEAN
+	}
+
+	protected String _value;
 	protected String _name;
+	protected Type _type;
 	protected ArrayList<Jobase> _parent;
 
 	public Joleaf() {
 		_name = "";
-		_string = null;
-		_numeric = true;
+		_value = null;
+		_type = Type.STRING;
 		_parent = new ArrayList<Jobase>();
 	}
 
 	public Joleaf(String s) {
 		_name = "";
-		_string = s;
-		_numeric = false;
+		_value = s;
+		_type = Type.STRING;
 		_parent = new ArrayList<Jobase>();
 	}
 
 	public Joleaf(int i) {
 		_name = "";
-		_string = i + "";
-		_numeric = true;
+		_value = i + "";
+		_type = Type.INTEGER;
 		_parent = new ArrayList<Jobase>();
 	}
 
 	public Joleaf(double d) {
 		_name = "";
-		_string = d + "";
-		_numeric = true;
+		_value = d + "";
+		_type = Type.FLOAT;
 		_parent = new ArrayList<Jobase>();
 	}
 
-	public Joleaf(char c) {
+	public Joleaf(boolean b) {
 		_name = "";
-		_string = c + "";
-		_numeric = false;
+		_value = b + "";
+		_type = Type.BOOLEAN;
 		_parent = new ArrayList<Jobase>();
 	}
 
-	public Joleaf(String s, boolean numeric) {
+	public Joleaf(String s, Type t) {
 		_name = "";
-		_string = s;
-		_numeric = numeric;
+		_value = s;
+		_type = t;
 		_parent = new ArrayList<Jobase>();
 	}
 
 	public Joleaf(String name, String s) {
 		_name = name;
-		_string = s;
-		_numeric = false;
+		_value = s;
+		_type = Type.STRING;
 		_parent = new ArrayList<Jobase>();
 	}
 
 	public Joleaf(String name, int i) {
 		_name = name;
-		_string = i + "";
-		_numeric = true;
+		_value = i + "";
+		_type = Type.INTEGER;
 		_parent = new ArrayList<Jobase>();
 	}
 
 	public Joleaf(String name, double d) {
 		_name = name;
-		_string = d + "";
-		_numeric = true;
+		_value = d + "";
+		_type = Type.FLOAT;
 		_parent = new ArrayList<Jobase>();
 	}
 
-	public Joleaf(String name, char c) {
+	public Joleaf(String name, boolean b) {
 		_name = name;
-		_string = c + "";
-		_numeric = false;
+		_value = b + "";
+		_type = Type.BOOLEAN;
 		_parent = new ArrayList<Jobase>();
 	}
 
-	public Joleaf(String name, String s, boolean numeric) {
+	public Joleaf(String name, String s, Type t) {
 		_name = name;
-		_string = s;
-		_numeric = numeric;
+		_value = s;
+		_type = t;
 		_parent = new ArrayList<Jobase>();
 	}
 
@@ -89,53 +97,65 @@ public class Joleaf {
 		return _name;
 	}
 
-	public Joleaf setNumeric(boolean n) {
-		_numeric = n;
+	public Joleaf setName(String name) {
+		for (Jobase j: _parent) {
+			((Jobranch)(j)).leaves.put(name, ((Jobranch)(j)).leaves.remove(_name));
+		}
+		_name = name;
 		return this;
 	}
 
+	public Joleaf setType(Type t) {
+		_type = t;
+		return this;
+	}
+
+	public Type getType() {
+		return _type;
+	}
+
 	public Joleaf set(String s) {
-		_string = s;
-		_numeric = false;
+		_value = s;
+		_type = Type.STRING;
 		return this;
 	}
 
 	public Joleaf set(int i) {
-		_string = i + "";
-		_numeric = true;
+		_value = i + "";
+		_type = Type.INTEGER;
 		return this;
 	}
 
 	public Joleaf set(double d) {
-		_string = d + "";
-		_numeric = true;
+		_value = d + "";
+		_type = Type.FLOAT;
 		return this;
 	}
 
-	public Joleaf set(char c) {
-		_string = c + "";
-		_numeric = false;
+	public Joleaf set(boolean b) {
+		_value = b + "";
+		_type = Type.BOOLEAN;
 		return this;
 	}
 
 	public String getString() {
-		return _string;
+		return _value;
 	}
 
 	public int getInt() {
-		return Integer.parseInt(_string);
+		return Integer.parseInt(_value);
 	}
 
 	public double getDouble() {
-		return Double.parseDouble(_string);
+		return Double.parseDouble(_value);
 	}
 
-	public char getChar() {
-		return _string.charAt(0);
+	public boolean getBoolean() {
+		return Boolean.parseBoolean(_value);
 	}
 
 	public String toString() {
-		return "\"" + _name + "\": " + (_numeric ? _string : "\"" + _string + "\"");
+		return "\"" + _name + "\": " + (_type != Type.STRING ? _value : "\"" + _value + "\"");
 	}
 
 	public String toJSON() {
@@ -147,17 +167,16 @@ public class Joleaf {
 	}
 
 	protected Joleaf addParent(Jobase j) {
-		_parent.add(j);
+		if (!_parent.contains(j))
+			_parent.add(j);
 		return this;
 	}
 
 	protected Joleaf removeParent(Jobase j) {
-		_parent.remove(j);
-		return this;
-	}
-
-	protected Joleaf setName(String name) {
-		_name = name;
+		if (_parent.contains(j))
+			_parent.remove(j);
 		return this;
 	}
 }
+
+

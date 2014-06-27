@@ -1,5 +1,7 @@
 package Jobase;
 
+import jdk.internal.util.xml.impl.Pair;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -20,7 +22,10 @@ public class Jobranch extends Jobase {
 		_parent = new ArrayList<Jobase>();
 	}
 
-	protected Jobranch setName(String name) {
+	public Jobranch setName(String name) {
+		for (Jobase j: _parent) {
+			((Jobranch)(j)).leaves.put(name, ((Jobranch)(j)).leaves.remove(_name));
+		}
 		_name = name;
 		return this;
 	}
@@ -68,8 +73,8 @@ public class Jobranch extends Jobase {
 		return j;
 	}
 
-	public Joleaf addLeaf(String name, char c) {
-		Joleaf j = new Joleaf(name, c).addParent(this);
+	public Joleaf addLeaf(String name, boolean b) {
+		Joleaf j = new Joleaf(name, b).addParent(this);
 		leaves.put(name, j);
 		return j;
 	}
@@ -94,6 +99,14 @@ public class Jobranch extends Jobase {
 		return j.toArray(new Joleaf[j.size()]);
 	}
 
+	public boolean hasLeaf(String name) {
+		return leaves.containsKey(name);
+	}
+
+	public boolean hasLeaf(Joleaf j) {
+		return leaves.containsKey(j._name);
+	}
+
 	public String toString() {
 		String s = "";
 		for (Joleaf j: leaves.values()) {
@@ -111,13 +124,23 @@ public class Jobranch extends Jobase {
 		return _parent.toArray(new Jobase[_parent.size()]);
 	}
 
+	/*public Jobranch[] sortByLeaf(Jobranch[] j, String key) {
+		ArrayList<Jobranch> less = new ArrayList<Jobranch>();
+		for (Jobranch jb: j) {
+			if jb.hasl
+		}
+		HashMap<>
+	}*/
+
 	protected Jobranch addParent(Jobase j) {
-		_parent.add(j);
+		if (!_parent.contains(j))
+			_parent.add(j);
 		return this;
 	}
 
 	protected Jobranch removeParent(Jobase j) {
-		_parent.remove(j);
+		if (_parent.contains(j))
+			_parent.remove(j);
 		return this;
 	}
 }

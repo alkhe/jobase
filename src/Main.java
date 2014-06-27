@@ -2,7 +2,7 @@ import Jobase.*;
 
 public class Main {
 
-	//static Jobase jobase;
+	static Jobase jobase;
 
 	public static void main(String[] args) {
 
@@ -79,9 +79,7 @@ public class Main {
 		System.out.println(Jobase.toJSON(mux.substring(0, mux.length() - 1)));
 		*/
 
-		// TODO Complete parent node portion
-
-
+		/*
 		Jobase db = new Jobase("server");
 
 		Jobranch root = db.addBranch("users").addBranch("root");
@@ -89,7 +87,14 @@ public class Main {
 		Jobranch toor = root.getParents()[0].addBranch("toor");
 		toor.addLeaf("id", 200);
 		System.out.println(db);
+		*/
 
+		/*
+		Jobase db = new Jobase("server");
 
+		Joleaf running = db.addBranch("globals").addLeaf("running", false);
+
+		System.out.println(db);
+		*/
 	}
 }

@@ -18,7 +18,7 @@ The Jobranch class is an extension to the concept of database tables. Jobranches
 	Jobranch root = users.addBranch("root");
 
 ###Adding Leaves
-The Joleaf class are entries of Jobranches that store values. Currently supported types are strings, integers, floating point values, and characters. Joleaf objects are similar to Javascript variables, as they support implicit and dynamic typing. This implicit typing allows for effective representation as a JSON object.
+The Joleaf class are entries of Jobranches that store values. Currently supported types are strings, integers, floating point values, and booleans. Joleaf objects are similar to Javascript variables, as they support implicit and dynamic typing. This implicit typing allows for effective representation as a JSON object. Optionally, the type may be explicitly specified.
 
 	root.addLeaf("id", 0);
 	root.addLeaf("password", "toor");
