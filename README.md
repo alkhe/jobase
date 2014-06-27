@@ -75,8 +75,8 @@ A Jobase, Jobranch, or Joleaf may be exported as a JSON variable with the toStri
 Operations on a single node may be chained, much the way jQuery elements can be chained, with the most recently returned node as the operand. A function will return a new node when it pertains to another Jobase, Jobranch, or Joleaf object. Examples are addBranch and removeLeaf.
 
 	Jobranch foo = db.addBranch("foo");
-    foo.addLeaf("bar", 4).set("57").setNumeric(true).set("baz");
-    System.out.println(foo);
+	foo.addLeaf("bar", 4).set("57").setType(Joleaf.Type.INTEGER).set("baz");
+	System.out.println(foo);
 >
 	"foo": {
     	"bar": "baz"

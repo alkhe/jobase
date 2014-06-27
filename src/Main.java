@@ -1,7 +1,5 @@
 import Jobase.*;
 
-import java.util.ArrayList;
-
 public class Main {
 
 	static Jobase jobase;
@@ -99,7 +97,13 @@ public class Main {
 		System.out.println(db);
 		*/
 
+		Jobase db = new Jobase("server");
 
+		Jobranch foo = db.addBranch("foo");
+		foo.addLeaf("bar", 4).set("57").setType(Joleaf.Type.INTEGER).set("baz");
+		System.out.println(foo);
+
+		/*
 		Jobase db = new Jobase("server");
 
 		Jobranch users = db.addBranch("users");
@@ -123,6 +127,7 @@ public class Main {
 
 		for (Jobranch j: Jobranch.sortByLeaf(users.getBranches(), "male"))
 			System.out.println(j);
+		*/
 
 	}
 }
