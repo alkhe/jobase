@@ -152,6 +152,10 @@ public class Jobase {
 		return branches.containsKey(j._name);
 	}
 
+	public boolean hasBranchExplicit(Jobranch j) {
+		return branches.containsValue(j);
+	}
+
 	public String toString() {
 		//return branches.values().toString();
 		String s = "";

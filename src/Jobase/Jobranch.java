@@ -107,6 +107,10 @@ public class Jobranch extends Jobase {
 		return leaves.containsKey(j._name);
 	}
 
+	public boolean hasLeafExplicit(Joleaf j) {
+		return leaves.containsValue(j);
+	}
+
 	public String toString() {
 		String s = "";
 		for (Joleaf j: leaves.values()) {
