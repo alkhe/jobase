@@ -155,7 +155,22 @@ Because the default toString method for Jobase, Jobranch, and Joleaf objects doe
 ###Accessing Parent Nodes
 Jobranch and Joleaf nodes are given the addresses of their parents when assigned to them, and they can be accessed by the getParents method, which returns an array of Jobase. This technique can be used to quickly clean up branches or add a sibling node.
 
-
+	Jobranch root = db.addBranch("users").addBranch("root");
+	root.addLeaf("id", 100);
+	Jobranch toor = root.getParents()[0].addBranch("toor");
+	toor.addLeaf("id", 200);
+	System.out.println(db);
+>
+	"server": {
+		"users": {
+			"root": {
+				"id": 100
+			},
+			"toor": {
+				"id": 200
+			}
+		}
+	}
 
 ##Development
 *	Writing to and reading from files, automatic interval write to disk

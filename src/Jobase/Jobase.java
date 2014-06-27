@@ -60,32 +60,36 @@ public class Jobase {
 
 	public Jobranch addBranch(String name) {
 		if (!branches.containsKey(name)) {
-			Jobranch j = new Jobranch(name);
+			Jobranch j = new Jobranch(name).addParent(this);
 			branches.put(name, j);
 			return j;
 
 			// TODO Copy Constructor problems?
-			//return branches.put(name, new Jobranch(name));
+			//return branches.put(name, new Jobranch(name).addParent(this));
 		}
 		else
-			return branches.replace(name, new Jobranch(name));
+			return branches.replace(name, new Jobranch(name).addParent(this));
 	}
 
 	public Jobranch addBranch(Jobranch j) {
-		return branches.put(j._name, j);
+		branches.put(j._name, j.addParent(this));
+		return j;
+		//return branches.put(j._name, j.addParent(this));
 	}
 
 	public Jobranch addBranch(Jobranch j, String name) {
-		return branches.put(name, j.setName(name));
+		branches.put(name, j.setName(name).addParent(this));
+		return j;
+		//return branches.put(name, j.setName(name));
 	}
 
 	public Jobranch[] addBranches(String[] names) {
 		ArrayList<Jobranch> j = new ArrayList<Jobranch>();
 		for (String name: names) {
 			if (!branches.containsKey(name))
-				j.add(branches.put(name, new Jobranch(name)));
+				j.add(branches.put(name, new Jobranch(name).addParent(this)));
 			else
-				j.add(branches.replace(name, new Jobranch(name)));
+				j.add(branches.replace(name, new Jobranch(name).addParent(this)));
 		}
 		Collections.reverse(j);
 		return j.toArray(new Jobranch[j.size()]);
@@ -94,9 +98,9 @@ public class Jobase {
 	public Jobranch[] addBranches(Jobranch[] j) {
 		for (Jobranch jb: j) {
 			if (!branches.containsKey(jb._name))
-				branches.put(jb._name, jb);
+				branches.put(jb._name, jb.addParent(this));
 			else
-				branches.replace(jb._name, jb);
+				branches.replace(jb._name, jb.addParent(this));
 		}
 		return j;
 	}
@@ -105,9 +109,9 @@ public class Jobase {
 		for (int i = 0; i < j.length; i++) {
 			j[i]._name = names[i];
 			if (!branches.containsKey(names[i]))
-				branches.put(names[i], j[i]);
+				branches.put(names[i], j[i].addParent(this));
 			else
-				branches.replace(names[i], j[i]);
+				branches.replace(names[i], j[i].addParent(this));
 		}
 		return j;
 	}

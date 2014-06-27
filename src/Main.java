@@ -1,10 +1,8 @@
 import Jobase.*;
 
-import java.util.ArrayList;
-
 public class Main {
 
-	static Jobase jobase;
+	//static Jobase jobase;
 
 	public static void main(String[] args) {
 
@@ -81,16 +79,17 @@ public class Main {
 		System.out.println(Jobase.toJSON(mux.substring(0, mux.length() - 1)));
 		*/
 
-		/*
+		// TODO Complete parent node portion
+
+
 		Jobase db = new Jobase("server");
 
 		Jobranch root = db.addBranch("users").addBranch("root");
 		root.addLeaf("id", 100);
 		Jobranch toor = root.getParents()[0].addBranch("toor");
 		toor.addLeaf("id", 200);
-
 		System.out.println(db);
-		*/
+
 
 	}
 }
